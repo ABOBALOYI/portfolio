@@ -16,8 +16,9 @@
   },
   "browserslist": "> 0.25%, not dead",
   "resolutions": {
+    "gatsby": "3.4.1",
     "gatsby-transformer-remark": "4.1.0",
-    "graphql": "^15.8.0"
+    "graphql": "15.8.0"
   },
   "scripts": {
     "build": "gatsby build",
