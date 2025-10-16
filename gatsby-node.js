@@ -7,6 +7,12 @@
 const path = require('path');
 const _ = require('lodash');
 
+// Polyfill for Node 16 compatibility
+if (typeof global.ReadableStream === 'undefined') {
+  const { ReadableStream } = require('stream/web');
+  global.ReadableStream = ReadableStream;
+}
+
 // Create slug field for blog posts
 exports.onCreateNode = ({ node, actions }) => {
   const { createNodeField } = actions;
