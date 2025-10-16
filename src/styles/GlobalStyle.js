@@ -94,7 +94,8 @@ const GlobalStyle = createGlobalStyle`
     overflow-x: hidden;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
-    background-color: var(--navy);
+    background: linear-gradient(180deg, #0a192f 0%, #0d1b2a 50%, #0a192f 100%);
+    background-attachment: fixed;
     color: var(--slate);
     font-family: var(--font-sans);
     font-size: var(--fz-xl);
@@ -137,6 +138,7 @@ const GlobalStyle = createGlobalStyle`
     max-width: 1600px;
     min-height: 100vh;
     padding: 200px 150px;
+    position: relative;
 
     @media (max-width: 1080px) {
       padding: 200px 100px;
@@ -167,6 +169,7 @@ const GlobalStyle = createGlobalStyle`
     margin: 0 auto;
     padding: var(--section-padding) 0;
     max-width: 1000px;
+    position: relative;
 
     @media (max-width: 768px) {
       padding: var(--section-padding-tablet) 0;

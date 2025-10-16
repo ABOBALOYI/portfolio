@@ -6,44 +6,50 @@ import { usePrefersReducedMotion } from '@hooks';
 
 const StyledHeroSection = styled.section`
   ${({ theme }) => theme.mixins.flexCenter};
-  ${({ theme }) => theme.mixins.scanLines};
   flex-direction: column;
   align-items: flex-start;
   min-height: 100vh;
   height: 100vh;
   padding: 0;
   position: relative;
-  background: radial-gradient(ellipse at center, rgba(0, 255, 65, 0.1) 0%, transparent 70%);
+  background: transparent;
 
-  /* Multi-discipline ambient effect */
+  /* Subtle ambient glow effect */
   &::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: radial-gradient(circle at 20% 80%, var(--matrix-green) 0%, transparent 40%),
-      radial-gradient(circle at 80% 20%, var(--neon-cyan) 0%, transparent 40%),
-      radial-gradient(circle at 50% 50%, var(--neon-pink) 0%, transparent 60%);
-    opacity: 0.08;
+    top: 20%;
+    left: 10%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(100, 255, 218, 0.08) 0%, transparent 70%);
+    border-radius: 50%;
     z-index: -1;
-    animation: data-stream 20s ease-in-out infinite;
+    animation: float 20s ease-in-out infinite;
   }
 
-  /* Subtle grid overlay for tech aesthetic */
+  /* Secondary glow */
   &::after {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: linear-gradient(rgba(0, 255, 65, 0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(0, 255, 65, 0.03) 1px, transparent 1px);
-    background-size: 50px 50px;
+    bottom: 20%;
+    right: 10%;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(92, 207, 230, 0.06) 0%, transparent 70%);
+    border-radius: 50%;
     z-index: -1;
-    opacity: 0.3;
+    animation: float 25s ease-in-out infinite reverse;
+  }
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translate(0, 0);
+    }
+    50% {
+      transform: translate(30px, -30px);
+    }
   }
 
   @media (max-height: 700px) and (min-width: 700px), (max-width: 360px) {
