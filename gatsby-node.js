@@ -7,11 +7,7 @@
 const path = require('path');
 const _ = require('lodash');
 
-// Polyfill for Node 16 compatibility
-if (typeof global.ReadableStream === 'undefined') {
-  const { ReadableStream } = require('stream/web');
-  global.ReadableStream = ReadableStream;
-}
+// Node 20+ has built-in support for modern APIs
 
 // Ensure Blob is available for plugins that expect it (e.g., remark ecosystem)
 if (typeof global.Blob === 'undefined') {
@@ -43,7 +39,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     {
       postsRemark: allMarkdownRemark(
         filter: { fileAbsolutePath: { regex: "/content/posts/" } }
-        sort: { order: DESC, fields: [frontmatter___date] }
+        sort: { frontmatter: { date: DESC } }
         limit: 1000
       ) {
         edges {
@@ -58,7 +54,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
         }
       }
       tagsGroup: allMarkdownRemark(limit: 2000) {
-        group(field: frontmatter___tags) {
+        group(field: { frontmatter: { tags: SELECT } }) {
           fieldValue
         }
       }
@@ -135,12 +131,6 @@ exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
         '@styles': path.resolve(__dirname, 'src/styles'),
         '@utils': path.resolve(__dirname, 'src/utils'),
       },
-      fallback: {
-        fs: false,
-        path: false,
-        crypto: false,
-      },
     },
-    plugins: [],
   });
 };
