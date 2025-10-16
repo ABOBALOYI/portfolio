@@ -109,19 +109,45 @@ const StyledTableContainer = styled.div`
       }
 
       &.links {
-        min-width: 100px;
+        min-width: 120px;
 
         div {
           display: flex;
           align-items: center;
+          gap: 10px;
+
+          .project-type-icon {
+            ${({ theme }) => theme.mixins.flexCenter};
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--light-navy);
+            border: 1px solid var(--lightest-navy);
+            color: var(--green);
+            flex-shrink: 0;
+            transition: var(--transition);
+
+            &:hover {
+              background: var(--green);
+              color: var(--navy);
+              transform: scale(1.1);
+            }
+
+            svg {
+              width: 16px;
+              height: 16px;
+            }
+          }
 
           a {
             ${({ theme }) => theme.mixins.flexCenter};
             flex-shrink: 0;
-          }
+            transition: var(--transition);
 
-          a + a {
-            margin-left: 10px;
+            &:hover {
+              color: var(--green);
+              transform: translateY(-2px);
+            }
           }
         }
       }
@@ -135,6 +161,41 @@ const ArchivePage = ({ location, data }) => {
   const revealTable = useRef(null);
   const revealProjects = useRef([]);
   const prefersReducedMotion = usePrefersReducedMotion();
+
+  // Function to determine icon based on tech stack
+  const getProjectIcon = (tech, title) => {
+    if (!tech) {return 'External';}
+
+    const techString = tech.join(' ').toLowerCase();
+    const titleString = title.toLowerCase();
+
+    if (techString.includes('react') || techString.includes('gatsby')) {return 'React';}
+    if (techString.includes('node') || techString.includes('express')) {return 'Nodejs';}
+    if (
+      techString.includes('mobile') ||
+      techString.includes('ios') ||
+      techString.includes('android')
+    ) {return 'Mobile';}
+    if (techString.includes('aws') || techString.includes('cloud') || techString.includes('docker')) {return 'Cloud';}
+    if (
+      techString.includes('database') ||
+      techString.includes('mongodb') ||
+      techString.includes('sql')
+    ) {return 'Database';}
+    if (
+      titleString.includes('security') ||
+      titleString.includes('penetration') ||
+      titleString.includes('audit')
+    ) {return 'Security';}
+    if (titleString.includes('api') || techString.includes('api') || techString.includes('rest')) {return 'Api';}
+    if (
+      titleString.includes('tool') ||
+      titleString.includes('automation') ||
+      titleString.includes('script')
+    ) {return 'Tool';}
+
+    return 'External';
+  };
 
   useEffect(() => {
     if (prefersReducedMotion) {
@@ -206,6 +267,9 @@ const ArchivePage = ({ location, data }) => {
 
                       <td className="links">
                         <div>
+                          <div className="project-type-icon">
+                            <Icon name={getProjectIcon(tech, title)} />
+                          </div>
                           {external && (
                             <a href={external} aria-label="External Link">
                               <Icon name="External" />
