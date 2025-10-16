@@ -5,6 +5,7 @@
 [build.environment]
   NODE_VERSION = "16.20.0"
   NPM_VERSION = "8.19.4"
+  NPM_FLAGS = "--legacy-peer-deps"
 
 [[plugins]]
   package = "@netlify/plugin-gatsby"
