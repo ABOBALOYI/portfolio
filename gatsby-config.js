@@ -58,12 +58,14 @@ module.exports = {
             priority: node.path === '/' ? 1.0 : 0.8,
           }));
 
-          const posts = allMarkdownRemark.nodes.map(node => ({
-            url: `${site.siteMetadata.siteUrl}${node.fields.slug}`,
-            changefreq: 'monthly',
-            priority: 0.7,
-            lastmod: node.frontmatter.date,
-          }));
+          const posts = (allMarkdownRemark?.nodes || [])
+            .filter(node => node.fields?.slug)
+            .map(node => ({
+              url: `${site.siteMetadata.siteUrl}${node.fields.slug}`,
+              changefreq: 'monthly',
+              priority: 0.7,
+              lastmod: node.frontmatter?.date,
+            }));
 
           return [...pages, ...posts];
         },
