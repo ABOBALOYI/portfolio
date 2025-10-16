@@ -71,7 +71,6 @@ module.exports = {
         },
       },
     },
-    `gatsby-plugin-robots-txt`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -216,21 +215,6 @@ module.exports = {
         sampleRate: 5,
         siteSpeedSampleRate: 10,
         cookieDomain: 'abobaloyi.com',
-      },
-    },
-    {
-      resolve: 'gatsby-plugin-robots-txt',
-      options: {
-        host: 'https://abobaloyi.com',
-        sitemap: 'https://abobaloyi.com/sitemap.xml',
-        policy: [{ userAgent: '*', allow: '/' }],
-      },
-    },
-    {
-      resolve: `gatsby-plugin-canonical-urls`,
-      options: {
-        siteUrl: `https://abobaloyi.com`,
-        stripQueryString: true,
       },
     },
   ],
