@@ -43,20 +43,56 @@ const StyledSocialLinks = styled.div`
 const StyledCredit = styled.div`
   color: var(--light-slate);
   font-family: var(--font-mono);
-  font-size: var(--fz-xxs);
-  line-height: 1;
+  font-size: var(--fz-xs);
+  line-height: 1.6;
 
   a {
     padding: 10px;
+    transition: var(--transition);
+
+    &:hover {
+      color: var(--green);
+    }
+  }
+
+  .footer-text {
+    margin-bottom: 8px;
+
+    .year {
+      color: var(--green);
+      font-weight: 600;
+    }
+
+    .separator {
+      margin: 0 8px;
+      color: var(--slate);
+    }
+
+    .name {
+      color: var(--lightest-slate);
+      font-weight: 500;
+    }
+  }
+
+  .tagline {
+    color: var(--slate);
+    font-size: var(--fz-xxs);
+    margin-top: 5px;
+    font-style: italic;
   }
 
   .github-stats {
-    margin-top: 10px;
+    margin-top: 15px;
 
     & > span {
       display: inline-flex;
       align-items: center;
       margin: 0 7px;
+      transition: var(--transition);
+
+      &:hover {
+        color: var(--green);
+      }
     }
     svg {
       display: inline-block;
@@ -77,7 +113,7 @@ const Footer = () => {
     if (process.env.NODE_ENV !== 'production') {
       return;
     }
-    fetch('https://api.github.com/repos/bchiang7/v4')
+    fetch('https://api.github.com/repos/ABOBALOYI/v4')
       .then(response => response.json())
       .then(json => {
         const { stargazers_count, forks_count } = json;
@@ -104,11 +140,20 @@ const Footer = () => {
         </ul>
       </StyledSocialLinks>
 
-      <StyledCredit tabindex="-1">
-        <a href="https://github.com/bchiang7/v4">
-          <div>Designed &amp; Built by Brittany Chiang</div>
+      <StyledCredit tabIndex="-1">
+        <div className="footer-text">
+          <span className="year">&copy; {new Date().getFullYear()}</span>
+          <span className="separator">•</span>
+          <span>Designed & Built by</span>
+          <span className="separator">•</span>
+          <a href="https://github.com/ABOBALOYI" target="_blank" rel="noopener noreferrer">
+            <span className="name">Abo Baloyi</span>
+          </a>
+        </div>
+        <div className="tagline">Securing the digital world, one line of code at a time</div>
 
-          {githubInfo.stars && githubInfo.forks && (
+        {githubInfo.stars && githubInfo.forks && (
+          <a href="https://github.com/ABOBALOYI/v4" target="_blank" rel="noopener noreferrer">
             <div className="github-stats">
               <span>
                 <Icon name="Star" />
@@ -119,8 +164,8 @@ const Footer = () => {
                 <span>{githubInfo.forks.toLocaleString()}</span>
               </span>
             </div>
-          )}
-        </a>
+          </a>
+        )}
       </StyledCredit>
     </StyledFooter>
   );

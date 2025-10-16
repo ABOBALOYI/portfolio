@@ -7,6 +7,21 @@
 const path = require('path');
 const _ = require('lodash');
 
+// Create slug field for blog posts
+exports.onCreateNode = ({ node, actions }) => {
+  const { createNodeField } = actions;
+
+  if (node.internal.type === 'MarkdownRemark') {
+    const slug = node.frontmatter.slug || `/insights/${_.kebabCase(node.frontmatter.title)}/`;
+
+    createNodeField({
+      node,
+      name: 'slug',
+      value: slug,
+    });
+  }
+};
+
 exports.createPages = async ({ actions, graphql, reporter }) => {
   const { createPage } = actions;
   const postTemplate = path.resolve(`src/templates/post.js`);
@@ -21,6 +36,9 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       ) {
         edges {
           node {
+            fields {
+              slug
+            }
             frontmatter {
               slug
             }
@@ -45,10 +63,13 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   const posts = result.data.postsRemark.edges;
 
   posts.forEach(({ node }) => {
+    const slug = node.fields.slug || node.frontmatter.slug;
     createPage({
-      path: node.frontmatter.slug,
+      path: slug,
       component: postTemplate,
-      context: {},
+      context: {
+        slug: slug,
+      },
     });
   });
 
@@ -57,7 +78,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   // Make tag pages
   tags.forEach(tag => {
     createPage({
-      path: `/pensieve/tags/${_.kebabCase(tag.fieldValue)}/`,
+      path: `/Insights/tags/${_.kebabCase(tag.fieldValue)}/`,
       component: tagTemplate,
       context: {
         tag: tag.fieldValue,

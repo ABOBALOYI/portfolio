@@ -17,12 +17,26 @@ const StyledHeader = styled.header`
   padding: 0px 50px;
   width: 100%;
   height: var(--nav-height);
-  background-color: rgba(10, 25, 47, 0.85);
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(26, 26, 26, 0.8) 100%);
+  border-bottom: 1px solid var(--matrix-green);
+  box-shadow: 0 0 20px var(--matrix-green-glow);
   filter: none !important;
   pointer-events: auto !important;
   user-select: auto !important;
-  backdrop-filter: blur(10px);
-  transition: var(--transition);
+  backdrop-filter: blur(15px);
+  transition: var(--glow-transition);
+
+  /* Cyberpunk scan line effect */
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--matrix-green), transparent);
+    animation: scan-line 3s linear infinite;
+  }
 
   @media (max-width: 1080px) {
     padding: 0 40px;
@@ -38,8 +52,8 @@ const StyledHeader = styled.header`
       css`
         height: var(--nav-scroll-height);
         transform: translateY(0px);
-        background-color: rgba(10, 25, 47, 0.85);
-        box-shadow: 0 10px 30px -10px var(--navy-shadow);
+        background: linear-gradient(135deg, rgba(0, 0, 0, 0.95) 0%, rgba(26, 26, 26, 0.9) 100%);
+        box-shadow: 0 0 30px var(--matrix-green-glow);
       `};
 
     ${props =>
@@ -48,7 +62,7 @@ const StyledHeader = styled.header`
       css`
         height: var(--nav-scroll-height);
         transform: translateY(calc(var(--nav-scroll-height) * -1));
-        box-shadow: 0 10px 30px -10px var(--navy-shadow);
+        box-shadow: 0 0 30px var(--matrix-green-glow);
       `};
   }
 `;
@@ -130,14 +144,49 @@ const StyledLinks = styled.div`
       font-size: var(--fz-xs);
 
       a {
-        padding: 10px;
+        padding: 10px 15px;
+        color: var(--slate);
+        font-family: var(--font-mono);
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: var(--glow-transition);
+        border: 1px solid transparent;
+        border-radius: var(--border-radius);
+        position: relative;
+        overflow: hidden;
 
         &:before {
           content: '0' counter(item) '.';
-          margin-right: 5px;
-          color: var(--green);
+          margin-right: 8px;
+          color: var(--matrix-green);
           font-size: var(--fz-xxs);
           text-align: right;
+          text-shadow: 0 0 5px var(--matrix-green-glow);
+        }
+
+        &:after {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: -100%;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(90deg, transparent, var(--matrix-green-tint), transparent);
+          transition: left 0.5s;
+        }
+
+        &:hover,
+        &:focus {
+          color: var(--matrix-green);
+          border-color: var(--matrix-green);
+          box-shadow: 0 0 15px var(--matrix-green-glow);
+          text-shadow: 0 0 10px var(--matrix-green-glow);
+          transform: translateY(-2px);
+
+          &:after {
+            left: 100%;
+          }
         }
       }
     }
@@ -147,6 +196,9 @@ const StyledLinks = styled.div`
     ${({ theme }) => theme.mixins.smallButton};
     margin-left: 15px;
     font-size: var(--fz-xs);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
   }
 `;
 
@@ -205,12 +257,6 @@ const Nav = ({ isHome }) => {
     </div>
   );
 
-  const ResumeLink = (
-    <a className="resume-button" href="/resume.pdf" target="_blank" rel="noopener noreferrer">
-      Resume
-    </a>
-  );
-
   return (
     <StyledHeader scrollDirection={scrollDirection} scrolledToTop={scrolledToTop}>
       <StyledNav>
@@ -227,7 +273,6 @@ const Nav = ({ isHome }) => {
                     </li>
                   ))}
               </ol>
-              <div>{ResumeLink}</div>
             </StyledLinks>
 
             <Menu />
@@ -256,16 +301,6 @@ const Nav = ({ isHome }) => {
                     ))}
                 </TransitionGroup>
               </ol>
-
-              <TransitionGroup component={null}>
-                {isMounted && (
-                  <CSSTransition classNames={fadeDownClass} timeout={timeout}>
-                    <div style={{ transitionDelay: `${isHome ? navLinks.length * 100 : 0}ms` }}>
-                      {ResumeLink}
-                    </div>
-                  </CSSTransition>
-                )}
-              </TransitionGroup>
             </StyledLinks>
 
             <TransitionGroup component={null}>

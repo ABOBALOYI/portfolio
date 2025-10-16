@@ -2,12 +2,18 @@ const config = require('./src/config');
 
 module.exports = {
   siteMetadata: {
-    title: 'Brittany Chiang',
+    title: 'Abo Baloyi',
     description:
-      'Brittany Chiang is a software engineer who specializes in building (and occasionally designing) exceptional digital experiences.',
-    siteUrl: 'https://brittanychiang.com', // No trailing slash allowed!
+      'Penetration Tester & Security Consultant in South Africa. Specializing in web application security testing, vulnerability assessments, and secure full-stack web development. Based in Johannesburg, protecting South African businesses from cyber threats.',
+    siteUrl: 'https://abobaloyi.com', // No trailing slash allowed!
     image: '/og.png', // Path to your image you placed in the 'static' folder
-    twitterUsername: '@bchiang7',
+    twitterUsername: '@abobaloyi',
+    author: 'Abo Baloyi',
+    keywords:
+      'Penetration Tester South Africa, Ethical Hacker Johannesburg, IT Engineer South Africa, Web Application Security Testing SA, Cybersecurity Consultant South Africa, Vulnerability Assessment SA, Security Audit Johannesburg, Web Developer South Africa, Full Stack Developer Johannesburg, IT Infrastructure Engineer SA, Cloud Engineer Johannesburg, Secure Web Development SA, OWASP Testing, Security Researcher South Africa, Systems Engineer SA, Network Security South Africa, IT Consultant Johannesburg',
+    language: 'en',
+    location: 'Johannesburg, South Africa',
+    serviceArea: 'South Africa',
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -15,13 +21,60 @@ module.exports = {
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
-    `gatsby-plugin-sitemap`,
+    {
+      resolve: `gatsby-plugin-sitemap`,
+      options: {
+        output: `/sitemap.xml`,
+        excludes: [`/dev-404-page`, `/404`, `/404.html`, `/offline-plugin-app-shell-fallback`],
+        query: `
+          {
+            site {
+              siteMetadata {
+                siteUrl
+              }
+            }
+            allSitePage {
+              nodes {
+                path
+              }
+            }
+            allMarkdownRemark {
+              nodes {
+                frontmatter {
+                  date
+                }
+                fields {
+                  slug
+                }
+              }
+            }
+          }
+        `,
+        resolveSiteUrl: ({ site }) => site.siteMetadata.siteUrl,
+        serialize: ({ site, allSitePage, allMarkdownRemark }) => {
+          const pages = allSitePage.nodes.map(node => ({
+            url: `${site.siteMetadata.siteUrl}${node.path}`,
+            changefreq: node.path === '/' ? 'weekly' : 'monthly',
+            priority: node.path === '/' ? 1.0 : 0.8,
+          }));
+
+          const posts = allMarkdownRemark.nodes.map(node => ({
+            url: `${site.siteMetadata.siteUrl}${node.fields.slug}`,
+            changefreq: 'monthly',
+            priority: 0.7,
+            lastmod: node.frontmatter.date,
+          }));
+
+          return [...pages, ...posts];
+        },
+      },
+    },
     `gatsby-plugin-robots-txt`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: 'Brittany Chiang',
-        short_name: 'Brittany Chiang',
+        name: 'Abo Baloyi',
+        short_name: 'Abo Baloyi',
         start_url: '/',
         background_color: config.colors.darkNavy,
         theme_color: config.colors.navy,
@@ -152,7 +205,31 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        trackingId: 'UA-45666519-2',
+        trackingId: 'GTM-NW5V2W7K',
+        head: false,
+        anonymize: true,
+        respectDNT: true,
+        exclude: ['/preview/**', '/do-not-track/me/too/'],
+        pageTransitionDelay: 0,
+        defer: false,
+        sampleRate: 5,
+        siteSpeedSampleRate: 10,
+        cookieDomain: 'abobaloyi.com',
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        host: 'https://abobaloyi.com',
+        sitemap: 'https://abobaloyi.com/sitemap.xml',
+        policy: [{ userAgent: '*', allow: '/' }],
+      },
+    },
+    {
+      resolve: `gatsby-plugin-canonical-urls`,
+      options: {
+        siteUrl: `https://abobaloyi.com`,
+        stripQueryString: true,
       },
     },
   ],

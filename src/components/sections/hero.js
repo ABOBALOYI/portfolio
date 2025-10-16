@@ -6,11 +6,45 @@ import { usePrefersReducedMotion } from '@hooks';
 
 const StyledHeroSection = styled.section`
   ${({ theme }) => theme.mixins.flexCenter};
+  ${({ theme }) => theme.mixins.scanLines};
   flex-direction: column;
   align-items: flex-start;
   min-height: 100vh;
   height: 100vh;
   padding: 0;
+  position: relative;
+  background: radial-gradient(ellipse at center, rgba(0, 255, 65, 0.1) 0%, transparent 70%);
+
+  /* Multi-discipline ambient effect */
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(circle at 20% 80%, var(--matrix-green) 0%, transparent 40%),
+      radial-gradient(circle at 80% 20%, var(--neon-cyan) 0%, transparent 40%),
+      radial-gradient(circle at 50% 50%, var(--neon-pink) 0%, transparent 60%);
+    opacity: 0.08;
+    z-index: -1;
+    animation: data-stream 20s ease-in-out infinite;
+  }
+
+  /* Subtle grid overlay for tech aesthetic */
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(rgba(0, 255, 65, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 255, 65, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+    z-index: -1;
+    opacity: 0.3;
+  }
 
   @media (max-height: 700px) and (min-width: 700px), (max-width: 360px) {
     height: auto;
@@ -19,30 +53,81 @@ const StyledHeroSection = styled.section`
 
   h1 {
     margin: 0 0 30px 4px;
-    color: var(--green);
+    color: var(--matrix-green);
     font-family: var(--font-mono);
     font-size: clamp(var(--fz-sm), 5vw, var(--fz-md));
     font-weight: 400;
+    text-shadow: 0 0 10px var(--matrix-green-glow);
+    position: relative;
+
+    &::after {
+      content: '_';
+      animation: terminal-cursor 1s infinite;
+      color: var(--matrix-green);
+    }
 
     @media (max-width: 480px) {
       margin: 0 0 20px 2px;
     }
   }
 
+  h2 {
+    color: var(--lightest-slate);
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+
+    &.big-heading {
+      background: linear-gradient(45deg, var(--matrix-green), var(--neon-cyan));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      filter: drop-shadow(0 0 10px var(--matrix-green-glow));
+    }
+  }
+
   h3 {
     margin-top: 5px;
-    color: var(--slate);
-    line-height: 0.9;
+    color: var(--light-slate);
+    line-height: 1.1;
+    font-size: clamp(var(--fz-lg), 4vw, var(--fz-heading));
+
+    &.big-heading {
+      background: linear-gradient(45deg, var(--neon-pink), var(--neon-purple));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      filter: drop-shadow(0 0 10px var(--neon-pink));
+    }
+
+    @media (max-width: 480px) {
+      font-size: clamp(var(--fz-md), 5vw, var(--fz-xl));
+      margin-top: 10px;
+    }
   }
 
   p {
     margin: 20px 0 0;
     max-width: 540px;
+    color: var(--slate);
+    font-family: var(--font-mono);
+    line-height: 1.6;
+    text-shadow: 0 0 5px rgba(176, 176, 176, 0.3);
+
+    /* Terminal-style text effect */
+    border-left: 2px solid var(--matrix-green);
+    padding-left: 20px;
+    background: linear-gradient(90deg, var(--matrix-green-tint), transparent);
   }
 
   .email-link {
     ${({ theme }) => theme.mixins.bigButton};
     margin-top: 50px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 600;
+
+    &:hover {
+      transform: translate(-5px, -5px) scale(1.05);
+    }
   }
 `;
 
@@ -59,29 +144,29 @@ const Hero = () => {
     return () => clearTimeout(timeout);
   }, []);
 
-  const one = <h1>Hi, my name is</h1>;
-  const two = <h2 className="big-heading">Brittany Chiang.</h2>;
-  const three = <h3 className="big-heading">I build things for the web.</h3>;
+  const one = <h1>$ whoami</h1>;
+  const two = <h2 className="big-heading">ABO_Baloyi.exe</h2>;
+  const three = <h3 className="big-heading">Security • Cloud • Code</h3>;
   const four = (
     <>
       <p>
-        I’m a software engineer specializing in building (and occasionally designing) exceptional
-        digital experiences. Currently, I’m focused on building accessible, human-centered products
-        at{' '}
-        <a href="https://upstatement.com/" target="_blank" rel="noreferrer">
-          Upstatement
-        </a>
-        .
+        <span style={{ color: 'var(--matrix-green)' }}>{'[SECURITY]'}</span> Penetration tester &
+        ethical hacker
+        <br />
+        <span style={{ color: 'var(--neon-cyan)' }}>{'[CLOUD]'}</span> AWS infrastructure & DevOps
+        automation
+        <br />
+        <span style={{ color: 'var(--neon-pink)' }}>{'[CODE]'}</span> Full-stack developer & system
+        architect
+        <br />
+        <span style={{ color: 'var(--matrix-green)' }}>{'>'}</span> Building secure, scalable
+        digital solutions
       </p>
     </>
   );
   const five = (
-    <a
-      className="email-link"
-      href="https://www.newline.co/courses/build-a-spotify-connected-app"
-      target="_blank"
-      rel="noreferrer">
-      Check out my course!
+    <a className="email-link" href="/Insights/" target="_blank" rel="noreferrer">
+      ./explore_insights.sh
     </a>
   );
 

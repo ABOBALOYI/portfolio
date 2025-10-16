@@ -148,12 +148,23 @@ const ArchivePage = ({ location, data }) => {
 
   return (
     <Layout location={location}>
-      <Helmet title="Archive" />
+      <Helmet title="Project Archive - Complete Portfolio" titleTemplate="%s | Abo Baloyi">
+        <meta
+          name="description"
+          content="Complete archive of Abo Baloyi's cloud engineering projects, DevOps implementations, and security solutions. Browse through years of innovative work."
+        />
+        <meta
+          name="keywords"
+          content="Project Archive, Cloud Projects, DevOps Portfolio, AWS Solutions, Kubernetes Deployments, Security Implementations"
+        />
+      </Helmet>
 
       <main>
         <header ref={revealTitle}>
-          <h1 className="big-heading">Archive</h1>
-          <p className="subtitle">A big list of things I’ve worked on</p>
+          <h1 className="big-heading">Project Portfolio</h1>
+          <p className="subtitle">
+            A collection of web applications, e-commerce sites, and secure solutions I've built
+          </p>
         </header>
 
         <StyledTableContainer ref={revealTable}>
@@ -170,16 +181,8 @@ const ArchivePage = ({ location, data }) => {
             <tbody>
               {projects.length > 0 &&
                 projects.map(({ node }, i) => {
-                  const {
-                    date,
-                    github,
-                    external,
-                    ios,
-                    android,
-                    title,
-                    tech,
-                    company,
-                  } = node.frontmatter;
+                  const { date, github, external, ios, android, title, tech, company } =
+                    node.frontmatter;
                   return (
                     <tr key={i} ref={el => (revealProjects.current[i] = el)}>
                       <td className="overline year">{`${new Date(date).getFullYear()}`}</td>
@@ -256,9 +259,6 @@ export const pageQuery = graphql`
             tech
             github
             external
-            ios
-            android
-            company
           }
           html
         }

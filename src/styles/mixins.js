@@ -11,13 +11,19 @@ const button = css`
   text-decoration: none;
   padding: 1.25rem 1.75rem;
   transition: var(--transition);
+  cursor: pointer;
 
   &:hover,
   &:focus-visible {
     outline: none;
-    box-shadow: 4px 4px 0 0 var(--green);
-    transform: translate(-5px, -5px);
+    background-color: var(--green-tint);
+    transform: translateY(-2px);
   }
+
+  &:active {
+    transform: translateY(0);
+  }
+
   &:after {
     display: none !important;
   }
@@ -97,13 +103,19 @@ const mixins = {
     line-height: 1;
     text-decoration: none;
     transition: var(--transition);
+    cursor: pointer;
 
     &:hover,
     &:focus-visible {
       outline: none;
-      box-shadow: 3px 3px 0 0 var(--green);
-      transform: translate(-4px, -4px);
+      background-color: var(--green-tint);
+      transform: translateY(-2px);
     }
+
+    &:active {
+      transform: translateY(0);
+    }
+
     &:after {
       display: none !important;
     }
@@ -120,13 +132,20 @@ const mixins = {
     line-height: 1;
     text-decoration: none;
     transition: var(--transition);
+    cursor: pointer;
 
     &:hover,
     &:focus-visible {
       outline: none;
-      box-shadow: 4px 4px 0 0 var(--green);
-      transform: translate(-5px, -5px);
+      background-color: var(--green-tint);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px -10px var(--green-tint);
     }
+
+    &:active {
+      transform: translateY(-1px);
+    }
+
     &:after {
       display: none !important;
     }
@@ -164,6 +183,102 @@ const mixins = {
     list-style: none;
     padding: 0;
     margin: 0;
+  `,
+
+  /* Cyberpunk Mixins */
+  cyberPanel: css`
+    background: linear-gradient(135deg, var(--dark-navy) 0%, var(--navy) 100%);
+    border: 1px solid var(--matrix-green);
+    border-radius: var(--border-radius);
+    box-shadow: 0 0 20px var(--matrix-green-glow), inset 0 0 20px rgba(0, 0, 0, 0.5);
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--matrix-green), transparent);
+      animation: scan-line 2s linear infinite;
+    }
+  `,
+
+  terminalWindow: css`
+    background: var(--dark-navy);
+    border: 1px solid var(--matrix-green);
+    border-radius: var(--border-radius);
+    font-family: var(--font-terminal);
+    box-shadow: 0 0 30px var(--matrix-green-glow);
+
+    &::before {
+      content: '● ● ●';
+      display: block;
+      padding: 8px 15px;
+      background: linear-gradient(90deg, var(--light-navy), var(--navy));
+      border-bottom: 1px solid var(--matrix-green);
+      color: var(--matrix-green);
+      font-size: 10px;
+      letter-spacing: 5px;
+    }
+  `,
+
+  glitchEffect: css`
+    position: relative;
+
+    &::before,
+    &::after {
+      content: attr(data-text);
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    &::before {
+      animation: glitch 0.3s infinite;
+      color: var(--neon-cyan);
+      z-index: -1;
+    }
+
+    &::after {
+      animation: glitch 0.3s infinite reverse;
+      color: var(--neon-pink);
+      z-index: -2;
+    }
+  `,
+
+  neonGlow: css`
+    color: var(--matrix-green);
+    text-shadow: 0 0 5px var(--matrix-green), 0 0 10px var(--matrix-green),
+      0 0 15px var(--matrix-green), 0 0 20px var(--matrix-green);
+
+    &:hover {
+      animation: neon-glow 1s ease-in-out infinite alternate;
+    }
+  `,
+
+  scanLines: css`
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0, 255, 65, 0.03) 2px,
+        rgba(0, 255, 65, 0.03) 4px
+      );
+      pointer-events: none;
+    }
   `,
 };
 

@@ -1,13 +1,11 @@
 ---
-date: '2017-12-21'
-title: 'UI Engineer Co-op'
-company: 'Apple'
-location: 'Cupertino, CA'
-range: 'July - December 2017'
-url: 'https://www.apple.com/music/'
+date: '2019-01-21'
+title: 'JNR Software Engineer'
+company: 'Telkom'
+location: 'Centurion ,Pretoria'
+range: 'Jan - December 2019'
+url: 'https://www.bcx.co.za/'
 ---
 
-- Developed and styled interactive web applications for Apple Music using Ember and SCSS
-- Built and shipped the Apple Music Extension for Facebook Messenger leveraging third-party and internal API integrations
-- Architected and implemented the user interface of Apple Music's embeddable web player widget for in-browser user authorization and full song playback
-- Contributed extensively to the creation of MusicKit JS, a public-facing JavaScript SDK for embedding Apple Music players into web applications
+- Developed aCoverage Checker APIusing Python 2.7,Flask,SQLite3, andDocker, with complete documentation viaOpenAPI (Swagger YAML)
+- Diagnosed and fixed critical issues in aRabbitMQ-based messaging application, increasing system availability from 14% to 94% through performance tuning, queue optimization, and efficient exception handling

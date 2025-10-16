@@ -1,26 +1,26 @@
 module.exports = {
-  email: 'brittany.chiang@gmail.com',
+  email: 'abo@baloyiabo.co.za',
 
   socialMedia: [
     {
       name: 'GitHub',
-      url: 'https://github.com/bchiang7',
+      url: 'https://github.com/ABOBALOYI',
     },
     {
       name: 'Instagram',
-      url: 'https://www.instagram.com/bchiang7',
+      url: 'https://www.instagram.com/ABOBALOYI',
     },
     {
       name: 'Twitter',
-      url: 'https://twitter.com/bchiang7',
+      url: 'https://twitter.com/abobaloyi',
     },
     {
       name: 'Linkedin',
-      url: 'https://www.linkedin.com/in/bchiang7',
+      url: 'https://www.linkedin.com/in/abo-baloyi-54b353122/',
     },
     {
-      name: 'Codepen',
-      url: 'https://codepen.io/bchiang7',
+      name: 'StackOverflow',
+      url: 'https://stackoverflow.com/users/8611704/abo-baloyi',
     },
   ],
 
@@ -41,12 +41,19 @@ module.exports = {
       name: 'Contact',
       url: '/#contact',
     },
+    {
+      name: 'Insights',
+      url: '/Insights/',
+    },
   ],
 
   colors: {
-    green: '#64ffda',
-    navy: '#0a192f',
-    darkNavy: '#020c1b',
+    orange: '#ff4000',
+    navy: '#0f0f0f',
+    darkNavy: '#0a0a0a',
+    matrixGreen: '#00ff41',
+    neonCyan: '#00ffff',
+    neonPink: '#ff0080',
   },
 
   srConfig: (delay = 200, viewFactor = 0.25) => ({

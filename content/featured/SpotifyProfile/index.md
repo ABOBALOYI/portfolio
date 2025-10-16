@@ -1,15 +1,15 @@
 ---
-date: '2'
-title: 'Spotify Profile'
-cover: './demo.png'
-github: 'https://github.com/bchiang7/spotify-profile'
-external: 'https://spotify-profile.herokuapp.com/'
+date: '1'
+title: 'Renke'
+cover: './rank.png'
+github: '#'
+external: '#'
 tech:
   - React
-  - Styled Components
+  - AWS Elastic Beanstalk
   - Express
-  - Spotify API
-  - Heroku
+  - Fast API
+  - PostgreSQL
 ---
 
-A web app for visualizing personalized Spotify data. View your top artists, top tracks, recently played tracks, and detailed audio information about each track. Create and save new playlists of recommended tracks based on your existing playlists and more.
+Renke – A PWA that helps South Africans find nearby taxi ranks, route prices, directions, and weather.
