@@ -28,9 +28,7 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "prepare": "husky install",
-    "lint-staged": "lint-staged",
-    "deploy:aws": "./deploy-aws.sh",
-    "deploy:aws:prod": "NODE_ENV=production ./deploy-aws.sh"
+    "lint-staged": "lint-staged"
   },
   "lint-staged": {
     "*.{js,css,json,md}": [

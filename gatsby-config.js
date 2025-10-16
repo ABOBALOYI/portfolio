@@ -1,6 +1,9 @@
 const config = require('./src/config');
 
 module.exports = {
+  flags: {
+    DEV_SSR: false,
+  },
   siteMetadata: {
     title: 'Abo Baloyi',
     description:
@@ -52,7 +55,7 @@ module.exports = {
         `,
         resolveSiteUrl: ({ site }) => site.siteMetadata.siteUrl,
         serialize: ({ site, allSitePage, allMarkdownRemark }) => {
-          const pages = allSitePage.nodes.map(node => ({
+          const pages = (allSitePage?.nodes || []).map(node => ({
             url: `${site.siteMetadata.siteUrl}${node.path}`,
             changefreq: node.path === '/' ? 'weekly' : 'monthly',
             priority: node.path === '/' ? 1.0 : 0.8,

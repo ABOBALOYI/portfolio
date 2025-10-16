@@ -13,6 +13,12 @@ if (typeof global.ReadableStream === 'undefined') {
   global.ReadableStream = ReadableStream;
 }
 
+// Ensure Blob is available for plugins that expect it (e.g., remark ecosystem)
+if (typeof global.Blob === 'undefined') {
+  const { Blob } = require('buffer');
+  global.Blob = Blob;
+}
+
 // Create slug field for blog posts
 exports.onCreateNode = ({ node, actions }) => {
   const { createNodeField } = actions;
