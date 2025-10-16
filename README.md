@@ -1,89 +1,134 @@
-<div align="center">
-  <img alt="Logo" src="https://raw.githubusercontent.com/bchiang7/v4/main/src/images/logo.png" width="100" />
-</div>
-<h1 align="center">
-  brittanychiang.com - v4
-</h1>
-<p align="center">
-  The fourth iteration of <a href="https://brittanychiang.com" target="_blank">brittanychiang.com</a> built with <a href="https://www.gatsbyjs.org/" target="_blank">Gatsby</a> and hosted with <a href="https://www.netlify.com/" target="_blank">Netlify</a>
-</p>
-<p align="center">
-  Previous iterations:
-  <a href="https://github.com/bchiang7/v1" target="_blank">v1</a>,
-  <a href="https://github.com/bchiang7/v2" target="_blank">v2</a>,
-  <a href="https://github.com/bchiang7/bchiang7.github.io" target="_blank">v3</a>
-</p>
-<p align="center">
-  <a href="https://app.netlify.com/sites/brittanychiang/deploys" target="_blank">
-    <img src="https://api.netlify.com/api/v1/badges/1963b488-7b78-48c9-9e2d-6fb5e47ab3af/deploy-status" alt="Netlify Status" />
-  </a>
-</p>
+# Abo Baloyi - Professional Portfolio
 
-![demo](https://raw.githubusercontent.com/bchiang7/v4/main/src/images/demo.png)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/your-badge-id/deploy-status)](https://app.netlify.com/sites/your-site/deploys)
 
-## 🚨 Forking this repo (please read!)
+Personal portfolio website showcasing my work as a Penetration Tester, IT Engineer, and Security Consultant based in Johannesburg, South Africa.
 
-Many people have contacted me asking me if they can use this code for their own website, and the answer to that question is usually **yes, with attribution**.
+🔗 **Live Site:** [abobaloyi.com](https://abobaloyi.com)
 
-I value keeping my site open source, but as you all know, _**plagiarism is bad**_. It's always disheartening whenever I find that someone has copied my site without giving me credit. I spent a non-trivial amount of effort building and designing this iteration of my website, and I am proud of it! All I ask of you all is to not claim this effort as your own.
+## 🚀 Features
 
-Please also note that I did not build this site with the intention of it being a starter theme, so if you have questions about implementation, please refer to the [Gatsby docs](https://www.gatsbyjs.org/docs/).
+- ⚡ Built with Gatsby for blazing-fast performance
+- 🎨 Modern, professional design with clean aesthetics
+- 📱 Fully responsive across all devices
+- 🔒 Security-focused with proper headers (HSTS, CSP, etc.)
+- 🔍 SEO optimized for South African market
+- ♿ Accessibility compliant (WCAG AA)
+- 📝 Blog/Insights section for security articles
+- 🎓 Certifications showcase
+- 💼 Project portfolio
+- 🌐 Multi-discipline identity (Security, Cloud, Development)
 
-### TL;DR
+## 🛠️ Tech Stack
 
-Yes, you can fork this repo. Please give me proper credit by linking back to [brittanychiang.com](https://brittanychiang.com). Thanks!
+- **Framework:** Gatsby (React)
+- **Styling:** Styled Components
+- **Deployment:** Netlify
+- **Version Control:** Git/GitHub
+- **Package Manager:** npm
 
-## 🛠 Installation & Set Up
+## 📦 Installation
 
-1. Install the Gatsby CLI
+```bash
+# Clone the repository
+git clone https://github.com/ABOBALOYI/portfolio.git
 
-   ```sh
-   npm install -g gatsby-cli
-   ```
+# Navigate to directory
+cd portfolio
 
-2. Install and use the correct version of Node using [NVM](https://github.com/nvm-sh/nvm)
+# Install dependencies
+npm install
 
-   ```sh
-   nvm install
-   ```
+# Start development server
+npm start
+```
 
-3. Install dependencies
+Visit `http://localhost:8000` to view the site locally.
 
-   ```sh
-   yarn
-   ```
+## 🏗️ Build
 
-4. Start the development server
+```bash
+# Create production build
+npm run build
 
-   ```sh
-   npm start
-   ```
+# Serve production build locally
+npm run serve
+```
 
-## 🚀 Building and Running for Production
+## 📁 Project Structure
 
-1. Generate a full static production build
+```
+├── content/
+│   ├── featured/        # Featured projects
+│   ├── jobs/           # Work experience
+│   ├── posts/          # Blog posts
+│   └── projects/       # Project portfolio
+├── src/
+│   ├── components/     # React components
+│   ├── images/         # Images and assets
+│   ├── pages/          # Page components
+│   ├── styles/         # Global styles
+│   └── templates/      # Page templates
+├── static/             # Static files
+└── gatsby-config.js    # Gatsby configuration
+```
 
-   ```sh
-   npm run build
-   ```
+## 🎨 Key Sections
 
-1. Preview the site as it will appear once deployed
+- **Hero:** Introduction and multi-discipline identity
+- **About:** Background and skills
+- **Experience:** Professional work history
+- **Projects:** Portfolio of completed work
+- **Certifications:** Professional certifications and badges
+- **Insights:** Security blog and articles
+- **Contact:** Get in touch
 
-   ```sh
-   npm run serve
-   ```
+## 🔐 Security Features
 
-## 🎨 Color Reference
+- Content Security Policy (CSP)
+- HTTP Strict Transport Security (HSTS)
+- X-Frame-Options
+- X-Content-Type-Options
+- Referrer Policy
+- Permissions Policy
 
-| Color          | Hex                                                                |
-| -------------- | ------------------------------------------------------------------ |
-| Navy           | ![#0a192f](https://via.placeholder.com/10/0a192f?text=+) `#0a192f` |
-| Light Navy     | ![#112240](https://via.placeholder.com/10/0a192f?text=+) `#112240` |
-| Lightest Navy  | ![#233554](https://via.placeholder.com/10/303C55?text=+) `#233554` |
-| Slate          | ![#8892b0](https://via.placeholder.com/10/8892b0?text=+) `#8892b0` |
-| Light Slate    | ![#a8b2d1](https://via.placeholder.com/10/a8b2d1?text=+) `#a8b2d1` |
-| Lightest Slate | ![#ccd6f6](https://via.placeholder.com/10/ccd6f6?text=+) `#ccd6f6` |
-| White          | ![#e6f1ff](https://via.placeholder.com/10/e6f1ff?text=+) `#e6f1ff` |
-| Green          | ![#f59509](https://via.placeholder.com/10/64ffda?text=+) `#f59509` |
+## 📝 Blog Topics
 
-# v2-
+- Penetration Testing
+- Web Application Security
+- POPIA Compliance
+- Ethical Hacking
+- Cloud Security
+- Secure Development
+
+## 🌍 SEO Optimization
+
+Optimized for South African market with focus on:
+
+- Penetration Testing services
+- IT Engineering
+- Security Consulting
+- Web Development
+- Cloud Engineering
+
+## 📄 License
+
+MIT License - Copyright (c) 2025 Abo Baloyi
+
+## 👤 Author
+
+**Abo Baloyi**
+
+- Website: [abobaloyi.com](https://abobaloyi.com)
+- Email: abo@baloyiabo.co.za
+- GitHub: [@ABOBALOYI](https://github.com/ABOBALOYI)
+- LinkedIn: [Abo Baloyi](https://linkedin.com/in/abo-baloyi-54b353122/)
+- Twitter: [@abobaloyi](https://twitter.com/abobaloyi)
+
+## 🙏 Acknowledgments
+
+Design inspiration from Brittany Chiang's portfolio template, heavily customized and enhanced with security-focused features and South African market optimization.
+
+---
+
+**Built with ❤️ in Johannesburg, South Africa** 🇿🇦
