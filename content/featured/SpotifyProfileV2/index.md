@@ -2,8 +2,6 @@
 date: '3'
 title: 'Automated Penetration Testing Tool'
 cover: './course-card.png'
-external: '#'
-cta: '#'
 tech:
   - Python
   - Shodan API
