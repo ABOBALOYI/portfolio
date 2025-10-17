@@ -38,6 +38,10 @@ module.exports = {
       url: '/#projects',
     },
     {
+      name: 'Stats',
+      url: '/#github-stats',
+    },
+    {
       name: 'Badges',
       url: '/#certifications',
       badge: '3',

@@ -14,6 +14,26 @@ const StyledHeroSection = styled.section`
   position: relative;
   background: transparent;
 
+  /* Optional hero image background */
+  &.with-hero-image {
+    background-image: url('/hero-terminal.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    /* Dark overlay for better text readability */
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(10, 25, 47, 0.85);
+      z-index: -1;
+    }
+  }
+
   /* Subtle ambient glow effect */
   &::before {
     content: '';

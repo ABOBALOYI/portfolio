@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Layout, Hero, About, Jobs, Featured, Projects, Contact, Head } from '@components';
 import Certifications from '@components/sections/certifications';
+import GitHubStats from '@components/github-stats';
 
 const StyledMainContainer = styled.main`
   counter-reset: section;
@@ -21,6 +22,7 @@ const IndexPage = ({ location }) => (
       <Jobs />
       <Featured />
       <Projects />
+      <GitHubStats />
       <Certifications />
       <Contact />
     </StyledMainContainer>
