@@ -9,7 +9,7 @@ module.exports = {
     description:
       'Penetration Tester & Security Consultant in South Africa. Specializing in web application security testing, vulnerability assessments, and secure full-stack web development. Based in Johannesburg, protecting South African businesses from cyber threats.',
     siteUrl: 'https://abobaloyi.com', // No trailing slash allowed!
-    image: '/og.png', // Path to your image you placed in the 'static' folder
+    image: '/hero-terminal.png', // Path to your image you placed in the 'static' folder
     twitterUsername: '@abobaloyi',
     author: 'Abo Baloyi',
     keywords:
