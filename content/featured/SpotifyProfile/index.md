@@ -3,7 +3,7 @@ date: '1'
 title: 'Renke'
 cover: './rank.png'
 github: '#'
-external: '#'
+external: 'renke.com'
 tech:
   - React
   - AWS Elastic Beanstalk

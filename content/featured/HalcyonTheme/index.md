@@ -2,8 +2,8 @@
 date: '2'
 title: 'Personal Website Deployment '
 cover: './abo-aws.png'
-github: '#'
-external: '#'
+github: 'https://github.com/ABOBALOYI/portfolio'
+external: 'https://abobaloyi.com/'
 tech:
   - AWS (S3, CloudFront, Route 53, ACM)
   - GitHub Actions, CI/CD pipelines
