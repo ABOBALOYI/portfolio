@@ -38,21 +38,21 @@ const StatsGrid = styled.div`
 `;
 
 const StatCard = styled.div`
-  background: ${theme.colors.lightNavy};
-  border-radius: ${theme.borderRadius};
+  background: var(--light-navy);
+  border-radius: var(--border-radius);
   padding: 20px;
-  border: 1px solid ${theme.colors.lightestNavy};
-  transition: ${theme.transition};
+  border: 1px solid var(--lightest-navy);
+  transition: var(--transition);
 
   &:hover {
     transform: translateY(-5px);
-    box-shadow: 0 20px 30px -15px ${theme.colors.shadowNavy};
+    box-shadow: 0 20px 30px -15px var(--navy-shadow);
   }
 
   img {
     width: 100%;
     height: auto;
-    border-radius: ${theme.borderRadius};
+    border-radius: var(--border-radius);
   }
 `;
 
