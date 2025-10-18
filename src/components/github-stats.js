@@ -9,6 +9,8 @@ const StyledGitHubStats = styled.section`
   margin: 0 auto;
   padding: 100px 0;
   max-width: 1000px;
+  width: 100%;
+  overflow-x: hidden;
 
   @media (${theme.bp.tabletL}) {
     padding: 80px 0;
@@ -26,7 +28,7 @@ const StyledGitHubStats = styled.section`
 
 const StatsGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 20px;
   width: 100%;
   margin-bottom: 50px;
@@ -34,6 +36,11 @@ const StatsGrid = styled.div`
   @media (${theme.bp.tabletL}) {
     grid-template-columns: 1fr;
     gap: 15px;
+  }
+
+  @media (max-width: 320px) {
+    grid-template-columns: 1fr;
+    gap: 10px;
   }
 `;
 
@@ -43,6 +50,9 @@ const StatCard = styled.div`
   padding: 20px;
   border: 1px solid var(--lightest-navy);
   transition: var(--transition);
+  width: 100%;
+  min-width: 0;
+  overflow: hidden;
 
   &:hover {
     transform: translateY(-5px);
@@ -53,6 +63,12 @@ const StatCard = styled.div`
     width: 100%;
     height: auto;
     border-radius: var(--border-radius);
+    max-width: 100%;
+    display: block;
+  }
+
+  @media (max-width: 480px) {
+    padding: 15px;
   }
 `;
 

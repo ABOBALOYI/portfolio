@@ -130,6 +130,8 @@ const GlobalStyle = createGlobalStyle`
     display: grid;
     grid-template-rows: 1fr auto;
     grid-template-columns: 100%;
+    overflow-x: hidden;
+    width: 100%;
   }
 
   main {
@@ -139,6 +141,7 @@ const GlobalStyle = createGlobalStyle`
     min-height: 100vh;
     padding: 200px 150px;
     position: relative;
+    overflow-x: hidden;
 
     @media (max-width: 1080px) {
       padding: 200px 100px;
@@ -170,6 +173,8 @@ const GlobalStyle = createGlobalStyle`
     padding: var(--section-padding) 0;
     max-width: 1000px;
     position: relative;
+    width: 100%;
+    overflow-x: hidden;
 
     @media (max-width: 768px) {
       padding: var(--section-padding-tablet) 0;
