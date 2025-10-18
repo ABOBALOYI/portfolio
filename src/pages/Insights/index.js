@@ -15,7 +15,8 @@ const StyledMainContainer = styled.main`
     a {
       &:hover,
       &:focus {
-        cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>⚡</text></svg>")
+        cursor:
+          url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>⚡</text></svg>")
             20 0,
           auto;
       }
@@ -151,7 +152,7 @@ const InsightsPage = ({ location, data }) => {
 
       <StyledMainContainer>
         <header>
-          <h1 className="big-heading">The Build/Break Blog</h1>
+          <h1 className="big-heading">Insights</h1>
           <p className="subtitle">Binary Blueprint</p>
         </header>
 
@@ -211,7 +212,7 @@ export const pageQuery = graphql`
         fileAbsolutePath: { regex: "/content/posts/" }
         frontmatter: { draft: { ne: true } }
       }
-      sort: { fields: [frontmatter___date], order: DESC }
+      sort: { frontmatter: { date: DESC } }
     ) {
       edges {
         node {

@@ -144,12 +144,12 @@ const About = () => {
         <StyledText>
           <div>
             <p>
-              I'm Abo Baloyi, a multi-disciplinary engineer bridging the worlds of{' '}
-              <span style={{ color: 'var(--matrix-green)' }}>cybersecurity</span>,{' '}
-              <span style={{ color: 'var(--neon-cyan)' }}>cloud infrastructure</span>, and{' '}
-              <span style={{ color: 'var(--neon-pink)' }}>full-stack development</span>. I architect
-              secure, scalable solutions while maintaining the mindset of both defender and ethical
-              attacker.
+              I'm Abo Baloyi, a Multi-Disciplinary Engineer bridging the worlds of{' '}
+              <span style={{ color: 'var(--matrix-green)' }}>Cybersecurity</span>,{' '}
+              <span style={{ color: 'var(--neon-cyan)' }}>Cloud Infrastructure</span>, and{' '}
+              <span style={{ color: 'var(--neon-pink)' }}>Full-Stack Development</span>. I architect
+              Secure, Scalable Solutions while maintaining the mindset of both Defender and Ethical
+              Attacker.
             </p>
 
             <p>My Tech Stack & Core Skills:</p>

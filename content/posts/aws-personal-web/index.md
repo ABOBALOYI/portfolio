@@ -1,7 +1,7 @@
 ---
 title: How I Hosted My Gatsby Website on AWS with GitHub CI/CD
 description: Trying to create a simple post in WordPress
-date: 2024-05-12
+date: 2025-01-15
 draft: false
 slug: /Insights/aws-personal-web
 tags:

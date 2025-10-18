@@ -38,21 +38,17 @@ module.exports = {
       url: '/#projects',
     },
     {
-      name: 'Stats',
-      url: '/#github-stats',
-    },
-    {
       name: 'Badges',
       url: '/#certifications',
       badge: '3',
     },
     {
-      name: 'Contact',
-      url: '/#contact',
-    },
-    {
       name: 'Insights',
       url: '/Insights/',
+    },
+    {
+      name: 'Contact',
+      url: '/#contact',
     },
   ],
 

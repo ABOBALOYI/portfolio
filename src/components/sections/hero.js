@@ -171,22 +171,22 @@ const Hero = () => {
   }, []);
 
   const one = <h1>$ whoami</h1>;
-  const two = <h2 className="big-heading">ABO_Baloyi.exe</h2>;
+  const two = <h2 className="big-heading">Abo_Baloyi.exe</h2>;
   const three = <h3 className="big-heading">Security • Cloud • Code</h3>;
   const four = (
     <>
       <p>
-        <span style={{ color: 'var(--matrix-green)' }}>{'[SECURITY]'}</span> Penetration tester &
-        ethical hacker
+        <span style={{ color: 'var(--matrix-green)' }}>{'[SECURITY]'}</span> Penetration Tester &
+        Ethical Hacker
         <br />
-        <span style={{ color: 'var(--neon-cyan)' }}>{'[CLOUD]'}</span> AWS infrastructure & DevOps
-        automation
+        <span style={{ color: 'var(--neon-cyan)' }}>{'[CLOUD]'}</span> AWS Infrastructure & DevOps
+        Automation
         <br />
-        <span style={{ color: 'var(--neon-pink)' }}>{'[CODE]'}</span> Full-stack developer & system
-        architect
+        <span style={{ color: 'var(--neon-pink)' }}>{'[CODE]'}</span> Full-Stack Developer & System
+        Architect
         <br />
-        <span style={{ color: 'var(--matrix-green)' }}>{'>'}</span> Building secure, scalable
-        digital solutions
+        <span style={{ color: 'var(--matrix-green)' }}>{'>'}</span> Building Secure, Scalable
+        Digital Solutions
       </p>
     </>
   );

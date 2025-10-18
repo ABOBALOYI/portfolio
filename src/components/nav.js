@@ -25,6 +25,7 @@ const StyledHeader = styled.header`
   user-select: auto !important;
   backdrop-filter: blur(15px);
   transition: var(--glow-transition);
+  transform: translateY(0) !important;
 
   /* Cyberpunk scan line effect */
   &::before {
@@ -47,21 +48,11 @@ const StyledHeader = styled.header`
 
   @media (prefers-reduced-motion: no-preference) {
     ${props =>
-    props.scrollDirection === 'up' &&
-      !props.scrolledToTop &&
+    !props.scrolledToTop &&
       css`
         height: var(--nav-scroll-height);
         transform: translateY(0px);
         background: linear-gradient(135deg, rgba(0, 0, 0, 0.95) 0%, rgba(26, 26, 26, 0.9) 100%);
-        box-shadow: 0 0 30px var(--matrix-green-glow);
-      `};
-
-    ${props =>
-    props.scrollDirection === 'down' &&
-      !props.scrolledToTop &&
-      css`
-        height: var(--nav-scroll-height);
-        transform: translateY(calc(var(--nav-scroll-height) * -1));
         box-shadow: 0 0 30px var(--matrix-green-glow);
       `};
   }

@@ -85,6 +85,11 @@ const GitHubStats = () => {
             src={`https://github-readme-stats.vercel.app/api?username=${username}&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=64FFDA&text_color=CDD6F4&icon_color=64FFDA`}
             alt="GitHub Stats"
             loading="lazy"
+            onError={e => {
+              e.target.style.display = 'none';
+              e.target.parentNode.innerHTML =
+                '<p style="color: var(--slate); text-align: center; padding: 20px;">GitHub stats temporarily unavailable</p>';
+            }}
           />
         </StatCard>
 
@@ -93,6 +98,11 @@ const GitHubStats = () => {
             src={`https://github-readme-stats.vercel.app/api/top-langs/?username=${username}&layout=compact&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=64FFDA&text_color=CDD6F4`}
             alt="Top Languages"
             loading="lazy"
+            onError={e => {
+              e.target.style.display = 'none';
+              e.target.parentNode.innerHTML =
+                '<p style="color: var(--slate); text-align: center; padding: 20px;">Language stats temporarily unavailable</p>';
+            }}
           />
         </StatCard>
       </StatsGrid>
@@ -102,6 +112,11 @@ const GitHubStats = () => {
           src={`https://github-readme-streak-stats.herokuapp.com/?user=${username}&theme=tokyonight&hide_border=true&background=0D1117&stroke=64FFDA&ring=64FFDA&fire=64FFDA&currStreakLabel=64FFDA`}
           alt="GitHub Streak"
           loading="lazy"
+          onError={e => {
+            e.target.style.display = 'none';
+            e.target.parentNode.innerHTML =
+              '<p style="color: var(--slate); text-align: center; padding: 20px;">Streak stats temporarily unavailable</p>';
+          }}
         />
       </StatCard>
     </StyledGitHubStats>

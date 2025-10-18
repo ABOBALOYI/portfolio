@@ -164,35 +164,57 @@ const ArchivePage = ({ location, data }) => {
 
   // Function to determine icon based on tech stack
   const getProjectIcon = (tech, title) => {
-    if (!tech) {return 'External';}
+    if (!tech) {
+      return 'External';
+    }
 
     const techString = tech.join(' ').toLowerCase();
     const titleString = title.toLowerCase();
 
-    if (techString.includes('react') || techString.includes('gatsby')) {return 'React';}
-    if (techString.includes('node') || techString.includes('express')) {return 'Nodejs';}
+    if (techString.includes('react') || techString.includes('gatsby')) {
+      return 'React';
+    }
+    if (techString.includes('node') || techString.includes('express')) {
+      return 'Nodejs';
+    }
     if (
       techString.includes('mobile') ||
       techString.includes('ios') ||
       techString.includes('android')
-    ) {return 'Mobile';}
-    if (techString.includes('aws') || techString.includes('cloud') || techString.includes('docker')) {return 'Cloud';}
+    ) {
+      return 'Mobile';
+    }
+    if (
+      techString.includes('aws') ||
+      techString.includes('cloud') ||
+      techString.includes('docker')
+    ) {
+      return 'Cloud';
+    }
     if (
       techString.includes('database') ||
       techString.includes('mongodb') ||
       techString.includes('sql')
-    ) {return 'Database';}
+    ) {
+      return 'Database';
+    }
     if (
       titleString.includes('security') ||
       titleString.includes('penetration') ||
       titleString.includes('audit')
-    ) {return 'Security';}
-    if (titleString.includes('api') || techString.includes('api') || techString.includes('rest')) {return 'Api';}
+    ) {
+      return 'Security';
+    }
+    if (titleString.includes('api') || techString.includes('api') || techString.includes('rest')) {
+      return 'Api';
+    }
     if (
       titleString.includes('tool') ||
       titleString.includes('automation') ||
       titleString.includes('script')
-    ) {return 'Tool';}
+    ) {
+      return 'Tool';
+    }
 
     return 'External';
   };
@@ -313,7 +335,7 @@ export const pageQuery = graphql`
   {
     allMarkdownRemark(
       filter: { fileAbsolutePath: { regex: "/content/projects/" } }
-      sort: { fields: [frontmatter___date], order: DESC }
+      sort: { frontmatter: { date: DESC } }
     ) {
       edges {
         node {

@@ -490,6 +490,8 @@ const GlobalStyle = createGlobalStyle`
   ${TransitionStyles};
 
   ${PrismStyles};
+
+
 `;
 
 export default GlobalStyle;

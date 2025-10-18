@@ -26,11 +26,8 @@ const StyledLoader = styled.div`
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: radial-gradient(
-        circle at 25% 25%,
-        var(--matrix-green-tint) 0%,
-        transparent 50%
-      ),
+    background-image:
+      radial-gradient(circle at 25% 25%, var(--matrix-green-tint) 0%, transparent 50%),
       radial-gradient(circle at 75% 75%, var(--neon-cyan) 0%, transparent 50%);
     opacity: 0.2;
     animation: matrix-rain 20s linear infinite;
@@ -80,6 +77,7 @@ const StyledLoader = styled.div`
 
       #A {
         opacity: 0;
+        transition: opacity 0.3s ease;
       }
 
       path {
@@ -126,21 +124,22 @@ const Loader = ({ finishLoading }) => {
       })
       .add({
         targets: '#logo #A',
-        duration: 700,
+        duration: 1000,
         easing: 'easeInOutQuart',
         opacity: 1,
+        delay: 200,
       })
       .add({
         targets: '#logo',
-        delay: 500,
-        duration: 300,
+        delay: 800,
+        duration: 400,
         easing: 'easeInOutQuart',
         opacity: 0,
         scale: 0.1,
       })
       .add({
         targets: '.loader',
-        duration: 200,
+        duration: 300,
         easing: 'easeInOutQuart',
         opacity: 0,
         zIndex: -1,
