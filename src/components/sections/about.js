@@ -144,8 +144,9 @@ const About = () => {
         <StyledText>
           <div>
             <p>
-              I'm Abo Baloyi, a Multi-Disciplinary Engineer bridging the worlds of{' '}
-              <span style={{ color: 'var(--matrix-green)' }}>Cybersecurity</span>,{' '}
+              I'm Abo Baloyi, a Multi-Disciplinary Engineer with{' '}
+              <span style={{ color: 'var(--green)' }}>7+ years of experience</span> bridging the
+              worlds of <span style={{ color: 'var(--matrix-green)' }}>Cybersecurity</span>,{' '}
               <span style={{ color: 'var(--neon-cyan)' }}>Cloud Infrastructure</span>, and{' '}
               <span style={{ color: 'var(--neon-pink)' }}>Full-Stack Development</span>. I architect
               Secure, Scalable Solutions while maintaining the mindset of both Defender and Ethical
