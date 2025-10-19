@@ -8,3 +8,9 @@ yarn-error.log
 .DS_Store
 
 .vscode/
+
+# Private guides and documentation (keep offline)
+AWS_DEPLOYMENT_GUIDE.md
+SEO_SOUTH_AFRICA.md
+SEO_CHECKLIST.md
+DESIGN_SYSTEM_AUDIT.md
