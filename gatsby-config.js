@@ -24,56 +24,7 @@ module.exports = {
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
-    {
-      resolve: `gatsby-plugin-sitemap`,
-      options: {
-        output: `/sitemap.xml`,
-        excludes: [`/dev-404-page`, `/404`, `/404.html`, `/offline-plugin-app-shell-fallback`],
-        query: `
-          {
-            site {
-              siteMetadata {
-                siteUrl
-              }
-            }
-            allSitePage {
-              nodes {
-                path
-              }
-            }
-            allMarkdownRemark {
-              nodes {
-                frontmatter {
-                  date
-                }
-                fields {
-                  slug
-                }
-              }
-            }
-          }
-        `,
-        resolveSiteUrl: ({ site }) => site.siteMetadata.siteUrl,
-        serialize: ({ site, allSitePage, allMarkdownRemark }) => {
-          const pages = (allSitePage?.nodes || []).map(node => ({
-            url: `${site.siteMetadata.siteUrl}${node.path}`,
-            changefreq: node.path === '/' ? 'weekly' : 'monthly',
-            priority: node.path === '/' ? 1.0 : 0.8,
-          }));
 
-          const posts = (allMarkdownRemark?.nodes || [])
-            .filter(node => node.fields?.slug)
-            .map(node => ({
-              url: `${site.siteMetadata.siteUrl}${node.fields.slug}`,
-              changefreq: 'monthly',
-              priority: 0.7,
-              lastmod: node.frontmatter?.date,
-            }));
-
-          return [...pages, ...posts];
-        },
-      },
-    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
