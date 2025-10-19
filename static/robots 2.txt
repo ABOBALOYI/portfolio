@@ -1,0 +1,19 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://abobaloyi.com/sitemap.xml
+
+# Disallow crawling of admin areas
+Disallow: /admin/
+Disallow: /.netlify/
+Disallow: /preview/
+
+# Allow crawling of important pages
+Allow: /projects/
+Allow: /about/
+Allow: /contact/
+Allow: /blog/
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 1
