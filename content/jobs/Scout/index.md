@@ -1,13 +1,13 @@
 ---
 date: '2025-01-01'
 title: 'Freelance Full Stack Developer'
-company: 'ADigital Pty Ltd'
+company: 'ADigital'
 location: ''
 range: '2015 - Present'
 url: 'https://adigital.co.za/'
 ---
 
-- Developed 4S0+ dynamic websites using React, PHP, JavaScript, and HTML5, with a focus on performance optimization, responsive design, and enhanced user engagement.
+- Developed 40+ dynamic websites using React, PHP, JavaScript, and HTML5, with a focus on performance optimization, responsive design, and enhanced user engagement.
 - Implemented a mobile-first design strategy for a major website revamp, resulting in a 60% increase in mobile engagement and a 30% boost in conversions, directly contributing to revenue growth.
 - Architected websites using progressive enhancement techniques and continuous technical upgrades, improving usability and boosting SEO performance by over 60%.
 - Spearheaded the development of custom RESTful APIs and WordPress plugins, enhancing website functionality, reducing load times by 50%, and increasing user retention by 30%.
