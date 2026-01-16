@@ -13,7 +13,7 @@ module.exports = {
     twitterUsername: '@abobaloyi',
     author: 'Abo Baloyi',
     keywords:
-      'Penetration Tester South Africa, Ethical Hacker Johannesburg, IT Engineer South Africa, Web Application Security Testing SA, Cybersecurity Consultant South Africa, Vulnerability Assessment SA, Security Audit Johannesburg, Web Developer South Africa, Full Stack Developer Johannesburg, IT Infrastructure Engineer SA, Cloud Engineer Johannesburg, Secure Web Development SA, OWASP Testing, Security Researcher South Africa, Systems Engineer SA, Network Security South Africa, IT Consultant Johannesburg',
+      'Penetration Tester South Africa, Ethical Hacker Johannesburg, IT Engineer South Africa, Web Application Security Testing SA, Cybersecurity Consultant South Africa, Vulnerability Assessment SA, Security Audit Johannesburg, Web Developer South Africa, Full Stack Developer Johannesburg, Next.js Developer South Africa, Python FastAPI Developer, React Developer Johannesburg, IT Infrastructure Engineer SA, Cloud Engineer Johannesburg, Secure Web Development SA, OWASP Testing, Security Researcher South Africa, Systems Engineer SA, Network Security South Africa, IT Consultant Johannesburg',
     language: 'en',
     location: 'Johannesburg, South Africa',
     serviceArea: 'South Africa',

@@ -128,8 +128,8 @@ const About = () => {
   const skills = [
     '🔒 Penetration Testing (Burp Suite, OWASP Top 10, Nmap, SQLmap)',
     '☁️ Cloud Security (AWS IAM, GuardDuty, WAF, VPC, CloudWatch)',
-    '💻 Full-Stack Development (React, Node.js, PHP, WordPress)',
-    '🐍 Python & Bash Scripting (Boto3, Automation, CLI Tools)',
+    '💻 Full-Stack Development (React, Next.js, Node.js, PHP, WordPress)',
+    '🐍 Python (FastAPI, Boto3, Automation, CLI Tools)',
     '🏗️ Infrastructure as Code (Terraform, CloudFormation)',
     '🐳 Containerization (Docker, Kubernetes)',
     '🔄 CI/CD Pipelines (GitHub Actions, CodePipeline)',
