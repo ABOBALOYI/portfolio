@@ -1,7 +1,7 @@
 ---
 date: '1'
 title: 'Renke'
-cover: './rank.png'
+cover: './renke.png'
 github: '#'
 external: 'renke.com'
 tech:
